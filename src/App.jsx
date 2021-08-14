@@ -5,11 +5,15 @@ import Projects from './components/projects/Projects'
 import Skills from './components/skills/Skills'
 import Contact from './components/contact/Contact'
 import "./app.scss"
+import { useState } from 'react'
+import Menu from './components/menu/Menu'
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(true)
   return (
     <div className="app">
-      <Topbar />
+      <Topbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+      <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <div className="sections">
         <Intro />
         <Portfolio />
@@ -17,7 +21,7 @@ function App() {
         <Skills />
         <Contact />
       </div>
-    </div>
+    </div >
   );
 }
 
